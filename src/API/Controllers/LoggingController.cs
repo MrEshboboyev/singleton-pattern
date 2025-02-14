@@ -8,7 +8,8 @@ namespace API.Controllers;
 public class LoggingController(ILoggingService loggingService) : ControllerBase
 {
     [HttpGet("log")]
-    public IActionResult LogMessage(string message)
+    public IActionResult LogMessage(
+        [FromBody] string message)
     {
         loggingService.Log(message);
         return Ok("Message logged successfully");
